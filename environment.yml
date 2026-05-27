@@ -1,0 +1,28 @@
+# Conda Environment Setup Instructions
+#  - Using an environment.yml file with conda
+#  - Key Terminal Commands:
+#
+#    conda env create -f environment.yml     # Create a new environment from the environment.yml file
+#    conda env update --file environment.yml --prune    # Update with deleting packages not in the environment.yml file
+#    conda env export --name tracking-barbell-exercises > environment.yml
+#    conda env remove --name tracking-barbell-exercises
+#    conda env list
+
+name: tracking-barbell-exercises
+channels:
+  - conda-forge
+  - anaconda
+  - defaults
+dependencies:
+  - python=3.12
+  - pip
+  - bottleneck
+  - pip:
+      - numpy
+      - pandas
+      - ipykernel
+      - ipython
+      - jupyter-client
+      - jupyter-core
+      - matplotlib
+      - black
