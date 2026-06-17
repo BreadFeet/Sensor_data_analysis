@@ -7,8 +7,6 @@
 #                                                            #
 ##############################################################
 
-# Updated by Dave Ebbelaar on 22-12-2022
-
 import numpy as np
 
 # Class to abstract a history of numerical values we can use as an attribute.
