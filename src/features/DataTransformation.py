@@ -24,9 +24,11 @@ class LowPassFilter:
         phase_shift=True,
     ):
         # http://stackoverflow.com/questions/12093594/how-to-implement-band-pass-butterworth-filter-with-scipy-signal-butter
-        # Cutoff frequencies are expressed as the fraction of the Nyquist frequency, which is half the sampling frequency
+        # Cutoff frequency is expressed as the fraction of the Nyquist frequency, which is half the sampling frequency.
+        # As Nyquist frequency is the maximal frequency that can be captured with the sampling frequency,
+        # cutoff frequency should be smaller than the Nyquist frequency.
         nyq = 0.5 * sampling_frequency
-        cut = cutoff_frequency / nyq
+        cut = cutoff_frequency / nyq    # Normalisation against Nyquist frequency; ranges 0-1
 
         b, a = butter(order, cut, btype="low", output="ba", analog=False)
         if phase_shift:
